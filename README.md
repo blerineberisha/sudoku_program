@@ -9,4 +9,4 @@ If the user gets stuck on a number, they can ask for a hint. The user can also u
 
 ## How to use
 
-## other or smth
+## other or smth
