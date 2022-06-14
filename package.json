@@ -1,8 +1,0 @@
-{
-  "name": "sudoku_program",
-  "version": "1.0.0",
-  "dependencies": {},
-  "devDependencies": {
-    "react-dom": "^18.1.0"
-  }
-}
