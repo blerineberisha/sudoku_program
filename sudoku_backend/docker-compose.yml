@@ -1,0 +1,10 @@
+# Use postgres/example user/password credentials
+version: latest
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_DB: sudoku
+      MYSQL_ROOT_PASSWORD: rootpwd
+    ports:
+      - "3306:3306"
