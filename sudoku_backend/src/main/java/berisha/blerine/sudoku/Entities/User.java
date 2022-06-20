@@ -1,4 +1,4 @@
-package berisha.blerine.sudoku;
+package berisha.blerine.sudoku.Entities;
 
 import javax.persistence.*;
 import java.util.UUID;

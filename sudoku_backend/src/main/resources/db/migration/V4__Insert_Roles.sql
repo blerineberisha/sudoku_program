@@ -1,0 +1,1 @@
+insert into role(id, name, description) values(UUID(), "admin role", "read, write, exec. rights");
