@@ -1,5 +1,6 @@
-create table role(
-    id VARCHAR(64) primary key,
-    name VARCHAR(10) unique,
-    description VARCHAR(30)
-);
+CREATE TABLE
+    role (
+        id VARCHAR(64) primary key,
+        NAME VARCHAR(10) UNIQUE,
+        description VARCHAR(30)
+    );
