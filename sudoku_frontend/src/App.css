@@ -1,38 +1,81 @@
-.App {
+body {
+  font-family: "Verdana", sans-serif;
+  font-weight: light;
+}
+
+h1 {
   text-align: center;
+  font-weight: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.status__number {
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.game__board {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 26px;
+  border: 2px solid black;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.game__row:nth-child(3n) {
+  border-bottom: 2px solid black;
+}
+
+.game__cell {
+  border: 1px solid var(--color-grey-lighter);
+  padding: 12px 16px;
+  color: var(--background-color);
+  cursor: pointer;
+}
+
+.game__cell.game__cell--filled {
+  color: black;
+}
+
+.game__cell.game__cell--userfilled {
+  color: #5a5a5a;
+}
+
+.game__cell.game__cell--selected {
+  background-color: rgba(140, 167, 236, 0.8);
+}
+.game__cell.game__cell--filled.game__cell--selected {
+  color: black;
+  background-color: rgba(140, 167, 236, 0.8);
+}
+
+.game__cell.game__cell--userfilled.game__cell--selected {
+  color: #5a5a5a;
+  background-color: rgba(140, 167, 236, 0.8);
+}
+
+.game__cell.game__cell--highlightselected {
+  background-color: rgba(140, 167, 236, 0.8);
+}
+
+.game__cell.game__cell--filled.game__cell--highlightselected {
+  color: #5a5a5a;
+  background-color: rgba(140, 167, 236, 0.8);
+}
+
+.game__cell.game__cell--userfilled.game__cell--highlightselected {
   color: white;
+  background-color: rgba(140, 167, 236, 0.8);
 }
 
-.App-link {
-  color: #61dafb;
+.game__cell:nth-child(3n) {
+  border-right: 2px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game__cell {
+  border: 1px solid black;
+}
+
+.status__action-svg {
+height: 50px;
+width: 50px;
 }
