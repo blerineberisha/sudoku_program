@@ -2,7 +2,8 @@ import React from 'react';
 import { useSudokuContext } from '../../context/SudokuContext';
 
 type GameSectionProps = {
-    onClick: (indexOfArray: number) => void
+    onClick: (indexOfArray: number) => void,
+    id?: string
 };
 
 /**

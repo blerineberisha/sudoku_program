@@ -1,6 +1,6 @@
 package berisha.blerine.sudoku.service;
 
-import berisha.blerine.sudoku.entities.Authority;
+import berisha.blerine.sudoku.entity.Authority;
 import berisha.blerine.sudoku.repository.AuthorityRepo;
 
 import java.util.List;

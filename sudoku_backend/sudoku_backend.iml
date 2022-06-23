@@ -15,7 +15,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="sudoku_backend" value="3176b929-a4ee-4653-a696-f3530d2f32e7" />
+          <factory-entry name="sudoku_backend" value="3f77ba82-4936-4b5e-bb95-6acb0fa07682" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

@@ -1,6 +1,12 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Verdana", sans-serif;
   font-weight: light;
+  height: 100%;
+  bottom: 0;
 }
 
 h1 {
@@ -58,7 +64,7 @@ h1 {
 }
 
 .game__cell.game__cell--filled.game__cell--highlightselected {
-  color: #5a5a5a;
+  color: black;
   background-color: rgba(140, 167, 236, 0.8);
 }
 
@@ -76,6 +82,42 @@ h1 {
 }
 
 .status__action-svg {
-height: 50px;
-width: 50px;
+  padding: 0.8rem;
+  height: 30px;
+  width: 30px;
+}
+
+.status__numbers {
+  display: block;
+  text-align: center;
+}
+
+#numberRule {
+  margin-top: 1rem;
+  width: 95%;
+}
+
+#number-grid {
+  margin-top: 5.2rem;
+  font-size: 20px;
+}
+
+.innercontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+#push{
+  height: max-content;
+}
+
+.status__difficulty-select{
+  font-size: large;
+  margin: 0;
+}
+
+option{
+  font-size: larger;
 }

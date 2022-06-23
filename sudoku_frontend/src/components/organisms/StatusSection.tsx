@@ -4,6 +4,7 @@ import Timer from '../../actions/Timer';
 import Numbers from '../../actions/Numbers';
 import Action from '../../actions/Action';
 import Mode from '../../actions/Mode';
+import { Grid } from '@mui/material';
 
 type StatusSectionProps = {
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void,
@@ -13,6 +14,7 @@ type StatusSectionProps = {
     onClickHint: () => void,
     onClickMistakesMode: () => void,
     onClickFastMode: () => void,
+    id?: string
 };
 
 /**
@@ -25,12 +27,21 @@ const StatusSection = (props: StatusSectionProps) => {
             <Timer />
             <Numbers onClickNumber={(number) => props.onClickNumber(number)} />
             <div className="status__actions">
-                <Action action='undo' onClickAction={props.onClickUndo} />
-                <Action action='erase' onClickAction={props.onClickErase} />
-                <Action action='hint' onClickAction={props.onClickHint} />
+                <Grid container>
+                    <Grid item sm={'auto'} md={4} lg={4}>
+                        <Action action='undo' onClickAction={props.onClickUndo} />
+                    </Grid>
+                    <Grid item sm={'auto'} md={4} lg={4}>
+                        <Action action='erase' onClickAction={props.onClickErase} />
+                    </Grid>
+                    <Grid item sm={'auto'} md={4} lg={4}>
+                        <Action action='hint' onClickAction={props.onClickHint} />
+                    </Grid>
+                </Grid>
                 <Mode mode='mistakes' onClickMode={props.onClickMistakesMode} />
                 <Mode mode='fast' onClickMode={props.onClickFastMode} />
             </div>
+
         </section>
     )
 }

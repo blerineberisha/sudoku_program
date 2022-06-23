@@ -10,6 +10,7 @@ export default function () {
             <SudokuProvider>
                 <Game />
             </SudokuProvider>
+            <div id="push"></div>
         </>
     )
 }

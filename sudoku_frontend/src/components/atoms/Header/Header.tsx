@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.css";
 
+
 const Header = () => {
   return (
     <>
-      <hr />
+      <hr id="headerRule"/>
       <div id="header">
-        <p>Link</p>
+        <p>Sudoku</p>
       </div>
     </>
   );

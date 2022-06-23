@@ -7,11 +7,13 @@ import Navigation from './Navigation';
 
 const App = () => {
   return (
-    <div id="app">
-      <Header />
-      <Navigation />
+    <>
+      <div id="app">
+        <Header />
+        <Navigation />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-package berisha.blerine.sudoku.entities;
+package berisha.blerine.sudoku.entity;
 
 import java.util.UUID;
 
