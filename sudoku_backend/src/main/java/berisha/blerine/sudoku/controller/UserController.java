@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping("")
-    @PreAuthorize("hasRole('admin')")
+    @PreAuthorize("hasAnyAuthority('admin', 'user')")
     public List<User> getAllUsers() {
         return uService.getAll();
     }

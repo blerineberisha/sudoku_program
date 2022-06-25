@@ -1,15 +1,24 @@
 package berisha.blerine.sudoku.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.UUID;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="authority")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "authority")
 public class Authority {
-    
+
     @Id
-    @Column(name="id", nullable = false)
+    @Column(name = "id", nullable = false)
     private UUID id;
 
     @Column
@@ -17,29 +26,5 @@ public class Authority {
 
     @Column
     private String description;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 }
