@@ -30,7 +30,4 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-*.vscode/
-*.idea
-
-.DS_Store
+.vscode/

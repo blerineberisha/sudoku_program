@@ -47,13 +47,13 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public Role saveRole(Role role) {
-        System.out.println("Saving new role {} to the database" + role.getName());
+        System.out.println("Saving new role {} to the database " + role.getName());
         return rRepo.save(role);
     }
 
     @Override
     public void addRoleToUser(String username, String roleName) {
-        System.out.println("Addind role {} to user {}" + roleName + username);
+        System.out.println("Adding role {} to user {} " + roleName + " " + username);
         User user = uRepo.findByUsername(username);
         Role role = rRepo.findByName(roleName);
         user.getRoles().add(role);
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public User getUser(String username) {
-        System.out.println("Fetching user {}" + username);
+        System.out.println("Fetching user {} " + username);
 
         return uRepo.findByUsername(username);
     }
@@ -71,6 +71,4 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         System.out.println("Fetching all users");
         return uRepo.findAll();
     }
-
-
 }
