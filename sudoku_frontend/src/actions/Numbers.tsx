@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSudokuContext } from '../context/SudokuContext';
-import { Grid } from '@mui/material';
 
 type NumbersProps = {
     onClickNumber: (number: string) => void
@@ -14,28 +13,22 @@ const Numbers = ({ onClickNumber }: NumbersProps) => {
 
     return (
         <div className="status__numbers">
-            <Grid container rowSpacing={5} spacing={1} id="number-grid">
-                {
-                    [1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => {
-                        if (numberSelected === number.toString()) {
-                            return (
-                                <Grid item sm={'auto'} md={4} lg={4}>
-                                    <div className="status__number status__number--selected" key={number} onClick={() => onClickNumber(number.toString())}>{number}</div>
-                                </Grid>
-                            )
+            {
+                [1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => {
+                    if (numberSelected === number.toString()) {
+                        return (
+                            <div className="status__number status__number--selected" key={number} onClick={() => onClickNumber(number.toString())}>{number}</div>
+                        )
 
-                        } else {
-                            return (
-                                <Grid item sm={'auto'} md={4} lg={4}>
-                                    <div className="status__number" key={number} onClick={() => onClickNumber(number.toString())}>{number}</div>
-                                </Grid>
-                            )
-                        }
+                    } else {
+                        return (
+                            <div className="status__number" key={number} onClick={() => onClickNumber(number.toString())}>{number}</div>
+                        )
+                    }
 
-                    })
-                }
-            </Grid>
-            <hr id="numberRule"/>
+                })
+            }
+            <hr id="numberRule" />
         </div>
     )
 }

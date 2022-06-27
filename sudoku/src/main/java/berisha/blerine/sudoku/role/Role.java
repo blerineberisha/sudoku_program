@@ -1,30 +1,23 @@
-package berisha.blerine.sudoku.entity;
+package berisha.blerine.sudoku.role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "authority")
-public class Authority {
-
+public class Role {
     @Id
-    @Column(name = "id", nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int role_id;
 
-    @Column
+    @Column(name="name")
     private String name;
-
-    @Column
-    private String description;
-
 }

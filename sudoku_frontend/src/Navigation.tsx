@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import InstructionsPage from './components/pages/InstructionsPage';
+import LoginPage from './components/pages/LoginPage/LoginPage';
+import RegistrationPage from './components/pages/RegistrationPage';
 import SudokuPage from './components/pages/SudokuPage';
 
 const Navigation = () => {
@@ -7,6 +10,9 @@ const Navigation = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<SudokuPage />} />
+                <Route path="/instructions" element={<InstructionsPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/registration" element={<RegistrationPage />} />
             </Routes>
         </BrowserRouter>
     );
