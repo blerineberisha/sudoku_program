@@ -110,7 +110,8 @@ h1 {
   }
 
   #numberRule {
-    display: none;
+    display: block;
+    width: 100%;
   }
 
   #number-grid {
@@ -164,10 +165,6 @@ h1 {
 
 option {
   font-size: larger;
-}
-
-Mode {
-  float: left !important;
 }
 
 .status__difficulty-select {

@@ -18,10 +18,46 @@
   display: flex;
 }
 
-#sudoku,
-#instr,
-#login {
-  padding: 20px;
-  text-decoration: none;
+@media screen and (min-width: 650px) {
+  #sudoku,
+  #instr,
+  #rank_gl,
+  #rank_pers {
+    padding: 25px;
+    text-decoration: none;
+    color: #2c138d;
+  }
+
+  #hamburger{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #sudoku,
+  #instr,
+  #rank_gl,
+  #rank_pers {
+    display: none;
+  }
+
+  #hamburger{
+    padding: 25px;
+    color: #2c138d;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  #items{
+    flex-direction: column;
+  }
+}
+
+#loginIcon {
+  position: absolute;
+  right: 25px;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
   color: #2c138d;
 }

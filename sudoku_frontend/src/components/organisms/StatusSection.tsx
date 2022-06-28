@@ -3,7 +3,7 @@ import Difficulty from '../../actions/Difficulty';
 import Timer from '../../actions/Timer';
 import Numbers from '../../actions/Numbers';
 import Action from '../../actions/Action';
-import Mode from '../../actions/Mode';
+
 
 type StatusSectionProps = {
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void,
@@ -11,8 +11,6 @@ type StatusSectionProps = {
     onClickUndo: () => void,
     onClickErase: () => void,
     onClickHint: () => void,
-    onClickMistakesMode: () => void,
-    onClickFastMode: () => void,
     id?: string
 };
 
@@ -29,8 +27,6 @@ const StatusSection = (props: StatusSectionProps) => {
                 <Action action='undo' onClickAction={props.onClickUndo} />
                 <Action action='erase' onClickAction={props.onClickErase} />
                 <Action action='hint' onClickAction={props.onClickHint} />
-                <Mode mode='mistakes' onClickMode={props.onClickMistakesMode} />
-                <Mode mode='fast' onClickMode={props.onClickFastMode} />
             </div>
 
         </section>

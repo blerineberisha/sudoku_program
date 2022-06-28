@@ -28,11 +28,9 @@ export const Game = () => {
     gameArray, setGameArray,
     difficulty, setDifficulty,
     setTimeGameStarted,
-    fastMode, setFastMode,
     cellSelected, setCellSelected,
     initArray, setInitArray,
     setWon } = useSudokuContext();
-  let [mistakesMode, setMistakesMode] = useState<boolean>(false);
   let [history, setHistory] = useState<string[][]>([]);
   let [solvedArray, setSolvedArray] = useState<string[]>([]);
   let [overlay, setOverlay] = useState<boolean>(false);
@@ -90,16 +88,7 @@ export const Game = () => {
   }
 
   function _userFillCell(index: number, value: string) {
-    if (mistakesMode) {
-      if (value === solvedArray[index]) {
-        _fillCell(index, value);
-      }
-      else {
-        // TODO: Flash - Mistakes not allowed in Mistakes Mode
-      }
-    } else {
-      _fillCell(index, value);
-    }
+    _fillCell(index, value);
   }
 
   /**
@@ -114,7 +103,7 @@ export const Game = () => {
    * On Click of a Game cell.
    */
   function onClickCell(indexOfArray: number) {
-    if (fastMode && numberSelected !== '0') {
+    if (numberSelected !== '0') {
       _userFillCell(indexOfArray, numberSelected);
     }
     setCellSelected(indexOfArray);
@@ -135,12 +124,11 @@ export const Game = () => {
    * either fill cell or set the number.
    */
   function onClickNumber(number: string) {
-    if (fastMode) {
-      setNumberSelected(number)
-    } else if (cellSelected !== -1) {
+    if (cellSelected !== -1) {
       _userFillCell(cellSelected, number);
     }
   }
+
 
   /**
    * On Click Undo,
@@ -177,24 +165,6 @@ export const Game = () => {
   }
 
   /**
-   * Toggle Mistakes Mode
-   */
-  function onClickMistakesMode() {
-    setMistakesMode(!mistakesMode);
-  }
-
-  /**
-   * Toggle Fast Mode
-   */
-  function onClickFastMode() {
-    if (fastMode) {
-      setNumberSelected('0');
-    }
-    setCellSelected(-1);
-    setFastMode(!fastMode);
-  }
-
-  /**
    * Close the overlay on Click.
    */
   function onClickOverlay() {
@@ -225,8 +195,6 @@ export const Game = () => {
             onClickUndo={onClickUndo}
             onClickErase={onClickErase}
             onClickHint={onClickHint}
-            onClickMistakesMode={onClickMistakesMode}
-            onClickFastMode={onClickFastMode}
           />
         </div>
       </div>
