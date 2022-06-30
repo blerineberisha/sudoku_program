@@ -1,4 +1,6 @@
- import { getSudoku } from './sudoku';
+ import { SelectChangeEvent } from '@mui/material';
+import { SetStateAction } from 'react';
+import { getSudoku } from './sudoku';
 
  /**
   * Initializes a null array for easier resets in the code.
@@ -63,7 +65,7 @@
  /**
   * Generates a Unique Sudoku puzzle from a solved Sudoku.
   */
- function _generateUniqueSudoku(solvedArray: string[], difficulty: string, e?: React.ChangeEvent<HTMLSelectElement>) {
+ function _generateUniqueSudoku(solvedArray: string[], difficulty: string, e?: SelectChangeEvent<SetStateAction<string>>) {
    let currentDifficulty = difficulty;
    let minimumCells, maximumCells, totalCells, box, cell;
  
@@ -75,7 +77,7 @@
    let cellsAvailable = [];
  
    if (e)
-     currentDifficulty = e.target.value;
+     currentDifficulty = e.target.value.toString();
  
    if (currentDifficulty === 'Easy') {
      minimumCells = 3;
@@ -137,7 +139,7 @@
    return tempInitArray;
  }
  
- export const getUniqueSudoku = (difficulty: string, e?: React.ChangeEvent<HTMLSelectElement>) => {
+ export const getUniqueSudoku = (difficulty: string, e?: SelectChangeEvent<SetStateAction<string>>) => {
    let temporaryInitArray = nullArray.slice();
    let temporarySolvedArray = nullArray.slice();
    let sudoku = getSudoku();

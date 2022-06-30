@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from 'react'
 import { SudokuProvider } from '../../context/SudokuContext'
 import { Game } from '../organisms/Game'

@@ -1,8 +1,10 @@
-import React from 'react';
+import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import React, { SetStateAction } from 'react';
 import { useSudokuContext } from '../context/SudokuContext';
 
+
 type DifficultyProps = {
-    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+    onChange: (e: SelectChangeEvent<SetStateAction<string>>) => void
 };
 
 /**
@@ -13,12 +15,13 @@ const Difficulty = (props: DifficultyProps) => {
 
     return (
         <div className="status__difficulty">
-            <span className="status__difficulty-text">Difficulty:&nbsp;&nbsp;</span>
-            <select name="status__difficulty-select" className="status__difficulty-select" defaultValue={difficulty} onChange={props.onChange}>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-            </select>
+            <Select name="status__difficulty-select" className="status__difficulty-select"
+                defaultValue={difficulty}
+                onChange={props.onChange}>
+                <MenuItem value={"Easy"}>Easy</MenuItem>
+                <MenuItem value={"Medium"}>Medium</MenuItem>
+                <MenuItem value={"Hard"}>Hard</MenuItem>
+            </Select>
         </div>
     )
 }

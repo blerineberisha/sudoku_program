@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
 import React from 'react';
-//import { AxiosService } from '../../../services/AxiosService';
 import './LoginPage.css';
 import * as Yup from 'yup';
 import { Field, Form, Formik } from 'formik';
 import { TextField } from "formik-mui";
+import LoginIcon from '@mui/icons-material/Login';
 
 
 export default function LoginPage() {
@@ -21,29 +21,34 @@ export default function LoginPage() {
     const handleSubmit = (username: string, password: string) => {
         alert("Username: " + username + " " + "Password: " + password)
     }
+
     return (
         <div id="login">
-            <Formik 
-            onSubmit={(values) => handleSubmit(values.username, values.password)}
-            initialValues={{
-                username: "",
-                password: ""
-            }}
-            validationSchema={validationSchema}
+            <Formik
+                onSubmit={(values) => handleSubmit(values.username, values.password)}
+                initialValues={{
+                    username: "",
+                    password: ""
+                }}
+                validationSchema={validationSchema}
             >
-                <Form>
-                    <div><h2>Login</h2></div>
-                    <div>
-                        <Field component={TextField} name="username" label="Username" variant='standard' />
-                    </div>
-                    <div>
-                        <Field component={TextField} name="password" type="password" label="Password" variant='standard' />
-                    </div>
-                    <Button type="submit" id="submit">Submit</Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form id="login_form">
+                        <div id="legend"><LoginIcon id="loginicon" /></div>
+                        <div id='field'>
+                            <Field id="login_input" component={TextField} name="username" label="Username" variant='outlined' />
+                            {errors.username && touched.username && <div className="error">{errors.username}</div>}
+                        </div>
+                        <div id='field'>
+                            <Field id="login_input" component={TextField} name="password" type="password" label="Password" variant='outlined' />
+                            {errors.password && touched.password && <div className="error">{errors.password}</div>}
+                        </div>
+                        <Button variant='contained' type="submit" id="submit">Submit</Button>
+                    </Form>
+                )}
             </Formik>
             <p>Don't have an account?</p><p>What are you waiting for? <a href="/registration">Register now</a></p>
-            
+
         </div>
 
     )

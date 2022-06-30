@@ -5,6 +5,8 @@ import { User } from '../../../Types/User';
 import * as Yup from 'yup';
 import './Registration.css';
 import { TextField } from "formik-mui";
+import { Button } from "@mui/material";
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export default function RegistrationPage() {
     const aService = new AxiosService();
@@ -32,7 +34,6 @@ export default function RegistrationPage() {
         username: "",
         email: "",
         password: ""
-        //roles: [1, "ROLE_USER"]
     }
     return (
         <div id="registration">
@@ -43,29 +44,29 @@ export default function RegistrationPage() {
                 validateOnBlur={true}
             >
                 {({ errors, touched }) => (
-                    <Form>
-                        <div><h2>Registration</h2></div>
-                        <div>
+                    <Form id="reg_form">
+                        <div id="legend"><HowToRegIcon id="regicon" /></div>
+                        <div id='field'>
                             <Field
-                                component={TextField} name="username" label="Username" id="reg_input" variant='standard' />
+                                component={TextField} name="username" label="Username" id="reg_input" variant='outlined' />
                             {errors.username && touched.username && <div className="error">{errors.username}</div>}
                         </div>
-                        <div>
+                        <div id='field'>
                             <Field
-                                component={TextField} name="email" label="Email" id="reg_input" variant='standard' />
+                                component={TextField} name="email" label="Email" id="reg_input" variant='outlined' />
                             {errors.email && touched.email && <div className="error">{errors.email}</div>}
                         </div>
 
-                        <div>
+                        <div id='field'>
                             <Field
-                                component={TextField} name="password" type="password" id="reg_input" label="Password" variant='standard' />
+                                component={TextField} name="password" type="password" id="reg_input" label="Password" variant='outlined' />
                             {errors.password && touched.password && <div className="error">{errors.password}</div>}
                         </div>
 
-                        <button type="submit" id="submit">Submit</button>
+                        <Button variant='contained' type="submit" id="submit">Submit</Button>
 
                         <p>Already have an account?</p>
-                        <a href="/login">Login</a>
+                        <p>Great! <a href="/login">Login</a></p>
                     </Form>
                 )}
             </Formik >

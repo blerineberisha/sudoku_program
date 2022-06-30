@@ -15,4 +15,8 @@ export class AxiosService {
     findUser(username: string) {
         return this.client.get("/users/" + username);
     }
+
+    getScores(){
+        return this.client.get("/scores");
+    }
 }

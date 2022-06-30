@@ -27,7 +27,7 @@ const Numbers = ({ onClickNumber }: NumbersProps) => {
 
             })}
 
-        </div><hr id="numberRule" /></>
+        </div></>
     )
 }
 

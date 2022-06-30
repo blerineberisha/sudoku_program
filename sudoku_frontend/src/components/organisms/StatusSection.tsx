@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import Difficulty from '../../actions/Difficulty';
 import Timer from '../../actions/Timer';
 import Numbers from '../../actions/Numbers';
 import Action from '../../actions/Action';
+import { Button, SelectChangeEvent } from '@mui/material';
 
 
 type StatusSectionProps = {
-    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+    onChange: (e: SelectChangeEvent<SetStateAction<string>>) => void,
     onClickNumber: (number: string) => void,
     onClickUndo: () => void,
     onClickErase: () => void,
@@ -21,8 +22,8 @@ const StatusSection = (props: StatusSectionProps) => {
     return (
         <section className="status">
             <Difficulty onChange={props.onChange} />
-            <Timer />
             <Numbers onClickNumber={(number) => props.onClickNumber(number)} />
+            <Timer />
             <div className="status__actions">
                 <Action action='undo' onClickAction={props.onClickUndo} />
                 <Action action='erase' onClickAction={props.onClickErase} />

@@ -1,0 +1,19 @@
+#scoreTable{
+    margin-top: 3rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid lightgrey 1px;
+    box-shadow: 3px 3px 3px lightgrey;
+}
+#tablehead{
+    background-color: #2c138d;
+    color: white;
+}
+
+#colored:nth-child(2n){
+    background-color: rgba(140, 167, 236, 0.3);
+}
+#colored:nth-child(2n+1){
+    background-color: rgba(140, 167, 236, 0.6);
+}

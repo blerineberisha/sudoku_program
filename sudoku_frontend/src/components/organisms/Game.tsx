@@ -1,29 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SetStateAction } from 'react';
 import moment from 'moment';
 import { useSudokuContext } from '../../context/SudokuContext';
 import GameSection from './GameSection';
 import StatusSection from './StatusSection';
 import { getUniqueSudoku } from '../../solver/UniqueSudoku';
+import { Button, SelectChangeEvent } from '@mui/material';
 
 /**
  * Game is the main React component.
  */
 export const Game = () => {
-  /**
-   * All the variables for holding state:
-   * gameArray: Holds the current state of the game.
-   * initArray: Holds the initial state of the game.
-   * solvedArray: Holds the solved position of the game.
-   * difficulty: Difficulty level - 'Easy', 'Medium' or 'Hard'
-   * numberSelected: The Number selected in the Status section.
-   * timeGameStarted: Time the current game was started.
-   * mistakesMode: Is Mistakes allowed or not?
-   * fastMode: Is Fast Mode enabled?
-   * cellSelected: If a game cell is selected by the user, holds the index.
-   * history: history of the current game, for 'Undo' purposes.
-   * overlay: Is the 'Game Solved' overlay enabled?
-   * won: Is the game 'won'?
-   */
   let { numberSelected, setNumberSelected,
     gameArray, setGameArray,
     difficulty, setDifficulty,
@@ -38,7 +24,7 @@ export const Game = () => {
   /**
    * Creates a new game and initializes the state variables.
    */
-  function _createNewGame(e?: React.ChangeEvent<HTMLSelectElement>) {
+  function _createNewGame(e?: SelectChangeEvent<SetStateAction<string>>) {
     let [temporaryInitArray, temporarySolvedArray] = getUniqueSudoku(difficulty, e);
 
     setInitArray(temporaryInitArray);
@@ -71,11 +57,14 @@ export const Game = () => {
    * Used to Fill / Erase as required.
    */
   function _fillCell(index: number, value: string) {
+    let event: KeyboardEvent;
     if (initArray[index] === '0') {
       let tempArray = gameArray.slice();
       let tempHistory = history.slice();
       tempHistory.push(gameArray.slice());
       setHistory(tempHistory);
+
+
 
       tempArray[index] = value;
       setGameArray(tempArray);
@@ -109,12 +98,7 @@ export const Game = () => {
     setCellSelected(indexOfArray);
   }
 
-  /**
-   * On Change Difficulty,
-   * 1. Update 'Difficulty' level
-   * 2. Create New Game
-   */
-  function onChangeDifficulty(e: React.ChangeEvent<HTMLSelectElement>) {
+  function onChangeDifficulty(e: SelectChangeEvent<SetStateAction<string>>) {
     setDifficulty(e.target.value);
     _createNewGame(e);
   }
@@ -177,7 +161,6 @@ export const Game = () => {
    */
   useEffect(() => {
     _createNewGame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -188,16 +171,21 @@ export const Game = () => {
             id="gameSec"
             onClick={(indexOfArray: number) => onClickCell(indexOfArray)}
           />
-          <StatusSection
-            id="statSec"
-            onClickNumber={(number: string) => onClickNumber(number)}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeDifficulty(e)}
-            onClickUndo={onClickUndo}
-            onClickErase={onClickErase}
-            onClickHint={onClickHint}
-          />
+          <div>
+            <Button id="newgame" variant='contained' onClick={() => onClickNewGame()}>New</Button>
+            <StatusSection
+              id="statSec"
+              onClickNumber={(number: string) => onClickNumber(number)}
+              onChange={(e: SelectChangeEvent<SetStateAction<string>>) => onChangeDifficulty(e)}
+              onClickUndo={onClickUndo}
+              onClickErase={onClickErase}
+              onClickHint={onClickHint}
+            />
+          </div>
         </div>
+
       </div>
+
       <div className={overlay
         ? "overlay overlay--visible"
         : "overlay"
