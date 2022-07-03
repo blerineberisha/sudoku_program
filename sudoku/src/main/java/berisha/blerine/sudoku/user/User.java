@@ -22,15 +22,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
 
-    @Column(name="username")
+    @Column(name="username", unique = true, nullable = false)
     private String username;
 
-    @Column(name="email")
+    @Column(name="email", unique = true,  nullable = false)
     private String email;
 
-    @Column(name="password")
+    @Column(name="password", nullable = false)
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
+
+    public User(String username, String password) {
+        this.user_id = getUser_id();
+        this.username = username;
+        this.password = password;
+    }
 }

@@ -13,11 +13,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int role_id;
 
-    @Column(name="name")
+    @Column(name="name", unique = true, nullable = false)
     private String name;
 }
