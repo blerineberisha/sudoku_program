@@ -6,11 +6,9 @@ import { Field, Form, Formik } from 'formik';
 import { TextField } from "formik-mui";
 import LoginIcon from '@mui/icons-material/Login';
 import { AxiosService } from '../../../services/AxiosService';
-import SnackbarContext from '../../../context/snackbar/SnackbarContext';
 
 
 export default function LoginPage() {
-    const { displaySnackbarMessage } = useContext(SnackbarContext);
     const aService = new AxiosService();
     const validationSchema = Yup.object().shape({
         username: Yup.string()
@@ -24,8 +22,6 @@ export default function LoginPage() {
     })
     const handleSubmit = (username: string, password: string) => {
         aService.login(username, password);
-        window.location.href = "/";
-        displaySnackbarMessage(username + "is logged in!", 'success')
     }
 
     return (
