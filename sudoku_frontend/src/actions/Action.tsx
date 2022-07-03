@@ -54,16 +54,6 @@ const Action = (props: ActionProps) => {
                       : ""
                     } onClick={props.onClickAction} >
       <Svg action={props.action} />
-      <p className="status__action-text">
-        {
-          props.action === 'undo'
-            ? 'Undo'
-            : props.action === 'erase'
-            ? 'Erase'
-            : props.action === 'hint'
-            ? 'Hint'
-            : ''
-        }</p>
     </div>
   )
 }

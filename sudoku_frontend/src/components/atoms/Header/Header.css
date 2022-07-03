@@ -3,6 +3,7 @@
   background-color: #8ca7ec;
   width: 100%;
   height: 55px;
+  box-shadow: 3px 3px 3px lightgrey;
 }
 
 #headerRule {
@@ -58,6 +59,6 @@
   right: 25px;
 }
 
-.css-i4bv87-MuiSvgIcon-root {
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root{
   color: #2c138d;
 }

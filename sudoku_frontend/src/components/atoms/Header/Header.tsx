@@ -14,7 +14,7 @@ const Header = () => {
           <p><a id="sudoku" href="/">Sudoku</a></p>
           <p><a id="instr" href="/instructions">How to play</a></p>
           <p><a id="rank_gl" href="/all">Global ranks</a></p>
-          <p><a id="rank_pers" href="/">Ranks</a></p>
+          <p><a id="rank_pers" href="/personal">Ranks</a></p>
         </div>
         <div id="loginIcon">
           <p><a id="login" href="/login"><PersonIcon /></a></p>

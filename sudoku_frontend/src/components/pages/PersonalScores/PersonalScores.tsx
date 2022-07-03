@@ -3,19 +3,24 @@ import { AxiosService } from '../../../services/AxiosService'
 import { score } from "../../../Types/Score";
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { TablePagination } from '@mui/material';
-import "./AllScores.css"
+import "./PersonalScores.css"
 import { Paper } from '@material-ui/core';
+import { User } from '../../../Types/User';
 
 
 
-const AllScoresPage = () => {
+const PersonalScores = () => {
     const aService = new AxiosService();
+    const [loggedin, setLoggedin] = React.useState<User>();
     const [page, setPage] = React.useState(0);
     const [scores, setScores] = useState<score[]>([]);
     const [searched, setSearched] = useState<string>("");
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     useEffect(() => {
-        aService.getScores().then((res) => {
+        aService.getLoggedinUser().then((result) => {
+            setLoggedin(result.data);
+        })
+        aService.personalScores(loggedin?.user_id).then((res) => {
             setScores(res.data);
         }).catch((e) => {
             console.log(e)
@@ -86,4 +91,4 @@ const AllScoresPage = () => {
         </div>
     )
 }
-export default AllScoresPage;
+export default PersonalScores;

@@ -57,7 +57,6 @@ export const Game = () => {
    * Used to Fill / Erase as required.
    */
   function _fillCell(index: number, value: string) {
-    let event: KeyboardEvent;
     if (initArray[index] === '0') {
       let tempArray = gameArray.slice();
       let tempHistory = history.slice();
@@ -171,10 +170,9 @@ export const Game = () => {
             id="gameSec"
             onClick={(indexOfArray: number) => onClickCell(indexOfArray)}
           />
-          <div>
+          <div id="statussect">
             <Button id="newgame" variant='contained' onClick={() => onClickNewGame()}>New</Button>
             <StatusSection
-              id="statSec"
               onClickNumber={(number: string) => onClickNumber(number)}
               onChange={(e: SelectChangeEvent<SetStateAction<string>>) => onChangeDifficulty(e)}
               onClickUndo={onClickUndo}

@@ -10,6 +10,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export default function RegistrationPage() {
     const aService = new AxiosService();
+    
     const handleSubmit = (values: User) => {
         aService.postNewUser(values)
     }

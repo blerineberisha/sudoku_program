@@ -16,7 +16,19 @@ export class AxiosService {
         return this.client.get("/users/" + username);
     }
 
-    getScores(){
+    getScores() {
         return this.client.get("/scores");
+    }
+
+    login(username: string, password: string) {
+        return this.client.post("/users/login", {username, password});
+    }
+
+    personalScores(id: number | undefined){
+        return this.client.get("/scores/" + id)
+    }
+
+    getLoggedinUser(){
+        return this.client.get("/profile");
     }
 }
